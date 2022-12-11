@@ -1,11 +1,11 @@
 #![no_std]
 #![no_main]
-
-mod lang_items;
+#![feature(panic_info_message)]
+// 否则： error[E0658]: use of unstable library feature 'panic_info_message'
 
 #[macro_use]
 mod console;
-
+mod lang_items;
 mod sbi;
 
 const SYSCALL_EXIT: usize = 93;
