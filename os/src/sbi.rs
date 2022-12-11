@@ -20,3 +20,8 @@ pub fn shutdown() -> ! {
     panic!("It should shutdown!");
 }
 
+const SBI_CONSOLE_PUTCHAR: usize = 1;
+
+pub fn console_putchar(c: usize) {
+    sbi_call(SBI_CONSOLE_PUTCHAR, c, 0, 0);
+}

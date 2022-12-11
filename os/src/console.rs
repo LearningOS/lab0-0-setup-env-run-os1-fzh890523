@@ -1,12 +1,14 @@
 //  os/src/console.rs
 use core::fmt::{Write, Arguments, Result};
-use crate::sys_write;
+use crate::sbi::console_putchar;
 
 struct Stdout;
 
 impl Write for Stdout {
     fn write_str(&mut self, s: &str) -> Result {
-        sys_write(1, s.as_bytes());
+        for c in s.chars() {
+            console_putchar(c as usize);
+        }        
         Ok(())
     }
 }
