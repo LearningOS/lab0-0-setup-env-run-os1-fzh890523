@@ -6,6 +6,8 @@ mod lang_items;
 #[macro_use]
 mod console;
 
+mod sbi;
+
 const SYSCALL_EXIT: usize = 93;
 const SYSCALL_WRITE: usize = 64;
 
@@ -33,9 +35,7 @@ pub fn sys_write(fd: usize, buffer: &[u8]) -> isize {
 
 #[no_mangle]
 extern "C" fn _start() {
-  print!("Hello, ");
-  println!("world!");
-  sys_exit(9);
+  sbi::shutdown();
 }
 
 
