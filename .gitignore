@@ -1,6 +1,6 @@
-**/.*/*
-!.github/*
+# **/.*/*
 !.cargo/*
+!.github/*
 
 **/target
 **/Cargo.lock
